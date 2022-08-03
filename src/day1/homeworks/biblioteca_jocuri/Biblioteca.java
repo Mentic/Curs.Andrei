@@ -3,6 +3,8 @@ package day1.homeworks.biblioteca_jocuri;
 import com.sun.security.jgss.GSSUtil;
 import com.sun.source.tree.TryTree;
 
+import java.util.Scanner;
+
 public class Biblioteca {
     Joc[] jocuri = new Joc[2];
     String nume;
@@ -40,23 +42,31 @@ public class Biblioteca {
 
     }
 
-    void remove(String gameRemover) {
+    void remove() {
+        Scanner scan = new Scanner(System.in);
+
+        String gameRemover = scan.nextLine();
+        boolean removed = false;
+        int r = 0;
         for (int i = 0; i < jocuri.length; i++) {
-            if (gameRemover.equals(jocuri[i].numeJoc)) {
-                jocuri[i] = null;
-                System.out.println("removed");
-                break;
+            if (jocuri[i] != null) {
+                if (gameRemover.equals(jocuri[i].numeJoc)) {
+                    jocuri[i] = null;
+                    removed = true;
+                    r = i;
+                    System.out.println("removed");
+                    for (int j = r; j < jocuri.length - 1; j++) {
+                        jocuri[j] = jocuri[j + 1];
+
+                    }
+                }
+
             }
-
-            if (!gameRemover.equals(jocuri[i].numeJoc)) {
-                System.out.println("game was not found");
-
-            }
-
+        }
+        if (!removed) {
+            System.out.println("Game was not found");
         }
     }
-
-
 }
 /*
    try {

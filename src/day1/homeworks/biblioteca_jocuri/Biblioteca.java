@@ -3,42 +3,23 @@ package day1.homeworks.biblioteca_jocuri;
 import com.sun.security.jgss.GSSUtil;
 import com.sun.source.tree.TryTree;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Biblioteca {
     Joc[] jocuri = new Joc[2];
     String nume;
 
-
     void addGame(Joc j) {
         boolean liber = false;
-
         for (int i = 0; i < jocuri.length; i++) {
-            try {
-                if (jocuri[i].numeJoc.equals(j.numeJoc)) {
-                    System.out.println("This game already exists");
-                    liber = true;
-                    break;
-                }
-
-            } catch (NullPointerException e) {
-
-            }
-            if (jocuri[i] == null) {
-                jocuri[i] = j;
-                System.out.println("added");
+            if (jocuri[i].getNumeJoc().equals(j.getNumeJoc())) {
+                System.out.println("This game already exists");
                 liber = true;
                 break;
             }
         }
-        if (!liber) {
-            Joc[] temp = new Joc[jocuri.length * 2];
-            for (int i = 0; i < jocuri.length; i++) {
-                temp[i] = jocuri[i];
-            }
-            jocuri = temp;
 
-        }
 
     }
 
@@ -50,7 +31,7 @@ public class Biblioteca {
         int r = 0;
         for (int i = 0; i < jocuri.length; i++) {
             if (jocuri[i] != null) {
-                if (gameRemover.equals(jocuri[i].numeJoc)) {
+                if (jocuri[i].getNumeJoc().equals(gameRemover)) {
                     jocuri[i] = null;
                     removed = true;
                     r = i;
@@ -68,6 +49,8 @@ public class Biblioteca {
         }
     }
 }
+
+
 /*
    try {
                 if (j.numeJoc.equals(jocuri[i].numeJoc))
@@ -105,5 +88,35 @@ if (jocuri[i] == null) {
         }
         if (!liber) {
             System.out.println("Nu exista sloturi libere");
+        }
+ */
+/*
+ boolean liber = false;
+
+        for (int i = 0; i < jocuri.length; i++) {
+            try {
+                if (jocuri[i].numeJoc.equals(j.numeJoc)) {
+                    System.out.println("This game already exists");
+                    liber = true;
+                    break;
+                }
+
+            } catch (NullPointerException e) {
+
+            }
+            if (jocuri[i] == null) {
+                jocuri[i] = j;
+                System.out.println("added");
+                liber = true;
+                break;
+            }
+        }
+        if (!liber) {
+            Joc[] temp = new Joc[jocuri.length * 2];
+            for (int i = 0; i < jocuri.length; i++) {
+                temp[i] = jocuri[i];
+            }
+            jocuri = temp;
+
         }
  */

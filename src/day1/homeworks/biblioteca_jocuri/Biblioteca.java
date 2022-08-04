@@ -13,20 +13,36 @@ public class Biblioteca {
     void addGame(Joc j) {
         boolean liber = false;
         for (int i = 0; i < jocuri.length; i++) {
-            if (jocuri[i].getNumeJoc().equals(j.getNumeJoc())) {
-                System.out.println("This game already exists");
+            if (jocuri[i] != null) {
+                if (jocuri[i].getNumeJoc().equals(j.getNumeJoc())) {
+                    System.out.println("This game already exists");
+                    liber = true;
+                    break;
+                }
+
+            }else{
+                jocuri[i] = j;
+                System.out.println("added");
                 liber = true;
                 break;
             }
+
+
+        }
+        if (liber == false) {
+            System.out.println("Building a new library");
+            Joc[] temp = new Joc[jocuri.length * 2];
+            for (int i = 0; i < jocuri.length; i++) {
+                temp[i] = jocuri[i];
+            }
+            jocuri = temp;
+
         }
 
 
     }
 
-    void remove() {
-        Scanner scan = new Scanner(System.in);
-
-        String gameRemover = scan.nextLine();
+    void remove(String gameRemover) {
         boolean removed = false;
         int r = 0;
         for (int i = 0; i < jocuri.length; i++) {
@@ -51,26 +67,7 @@ public class Biblioteca {
 }
 
 
-/*
-   try {
-                if (j.numeJoc.equals(jocuri[i].numeJoc))
-                    System.out.println("This game already exists");
 
-            } catch (Exception e) {
-
-                if (jocuri[i] == null) {
-                    jocuri[i] = j;
-                    System.out.println("added");
-                    liber = true;
-
-                }
-                if (liber == false) {
-                    System.out.println("Nu exista sloturi libere");
-                }
-              break;
-
-            }
- */
 
 
 /*

@@ -33,8 +33,8 @@ public class Main {
         j3.setTipDeJoc("FPS");
         b.addGame(j1);
         b.addGame(j2);
-        String removeGame = scan.nextLine();
-        b.remove(removeGame);
+//        String removeGame = scan.nextLine();
+//        b.remove(removeGame);
         b.addGame(j3);
         System.out.println(j3.getNumeJoc());
 
@@ -88,3 +88,18 @@ if (jocuri[i] == null) {
 
         }
  */
+/*
+if(i==jocuri.length){
+
+ System.out.println("Building a new library");
+  Joc[] temp = new Joc[jocuri.length * 2];
+       for (int j = 0; j < jocuri.length; j++) {
+ temp[j] = jocuri[j];
+         }
+ jocuri = temp;
+
+                        }
+ */
+
+
+

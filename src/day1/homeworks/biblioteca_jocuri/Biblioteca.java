@@ -1,46 +1,37 @@
 package day1.homeworks.biblioteca_jocuri;
 
-import com.sun.security.jgss.GSSUtil;
-import com.sun.source.tree.TryTree;
-
-import java.sql.SQLOutput;
-import java.util.Scanner;
 
 public class Biblioteca {
     Joc[] jocuri = new Joc[2];
     String nume;
 
     void addGame(Joc j) {
-        boolean liber = false;
+
         for (int i = 0; i < jocuri.length; i++) {
             if (jocuri[i] != null) {
-                if (jocuri[i].getNumeJoc().equals(j.getNumeJoc())) {
-                    System.out.println("This game already exists");
-                    liber = true;
-                    break;
+                if (i == jocuri.length) {
+                    System.out.println("Building a new library");
+                    Joc[] temp = new Joc[jocuri.length * 2];
+                    for (int k = 0; k < jocuri.length; k++) {
+                        temp[k] = jocuri[k];
+                    }
+                    jocuri = temp;
+                } else {
+                    if (jocuri[i].getNumeJoc().equals(j.getNumeJoc())) {
+                        System.out.println("This game already exists");
+                        break;
+
+                    }
                 }
 
-            }else{
+            } else {
                 jocuri[i] = j;
                 System.out.println("added");
-                liber = true;
                 break;
             }
-
-
         }
-        if (liber == false) {
-            System.out.println("Building a new library");
-            Joc[] temp = new Joc[jocuri.length * 2];
-            for (int i = 0; i < jocuri.length; i++) {
-                temp[i] = jocuri[i];
-            }
-            jocuri = temp;
-
-        }
-
-
     }
+
 
     void remove(String gameRemover) {
         boolean removed = false;

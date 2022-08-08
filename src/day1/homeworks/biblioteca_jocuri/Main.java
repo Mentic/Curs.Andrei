@@ -11,7 +11,11 @@ public class Main {
         j.setNumeJoc("Counter");
         j.setPret(20);
         j.setDate("14/04/2005");
-        j.setTipDeJoc("FPS");
+        System.out.println("Introdu tipul de joc:");
+        String gameType=scan.nextLine();
+
+        j.setTipDeJoc(gameType);
+
         b.addGame(j);
         System.out.println(b.jocuri[0].getNumeJoc());
         Joc j1 = new Joc();
@@ -22,15 +26,12 @@ public class Main {
         j1.setNumeJoc("Fifa");
         j1.setPret(220);
         j1.setDate("14/03/2005");
-        j1.setTipDeJoc("MMORPG");
+
         j2.setNumeJoc("LOL");
         j2.setPret(310);
         j2.setDate("14/04/2055");
-        j2.setTipDeJoc("RPG");
-        j3.setNumeJoc("Asasins");
         j3.setPret(20);
         j3.setDate("14/04/2205");
-        j3.setTipDeJoc("FPS");
         b.addGame(j1);
         b.addGame(j2);
 //        String removeGame = scan.nextLine();
@@ -39,7 +40,10 @@ public class Main {
         System.out.println(j3.getNumeJoc());
 
     }
+
 }
+
+
 
 /*
 if (jocuri[i] == null) {
